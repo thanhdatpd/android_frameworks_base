@@ -167,11 +167,12 @@ public final class WindowManagerGlobal {
                 sWindowManagerService = IWindowManager.Stub.asInterface(
                         ServiceManager.getService("window"));
                 try {
-                    while (sWindowManagerService == null){
-                        Log.w("Window", "call again");
-                        sWindowManagerService = IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
-                        if(sWindowManagerService == null) Log.w("Window", "Still null, call again");
-                    }
+                    //while (sWindowManagerService == null){
+                      //  Log.w("Window", "call again");
+                      //  sWindowManagerService = IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
+                      //  if(sWindowManagerService == null) Log.w("Window", "Still null, call again");
+                  //  }
+                    if(sWindowManagerService == null) Log.w("Window", "Still null, call again");
                     if (sWindowManagerService != null) {
                         ValueAnimator.setDurationScale(sWindowManagerService.getCurrentAnimatorScale());
                     }
