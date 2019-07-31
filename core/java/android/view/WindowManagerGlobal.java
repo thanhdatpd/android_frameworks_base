@@ -37,7 +37,6 @@ import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.concurrent;
 
 /**
  * Provides low-level communication with the system window manager for
@@ -169,9 +168,7 @@ public final class WindowManagerGlobal {
                         ServiceManager.getService("window"));
                 try {
                     while (sWindowManagerService == null){
-                        Log.w("Window", "start sleep 1s");
-                        TimeUnit.SECONDS.sleep(1);
-                        Log.w("Window", "end sleep 1s");
+                        Log.w("Window", "call again");
                         sWindowManagerService = IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
                         if(sWindowManagerService == null) Log.w("Window", "Still null, call again");
                     }
